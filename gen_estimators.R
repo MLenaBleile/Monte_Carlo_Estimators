@@ -1,5 +1,6 @@
-
 library(psych)
+library(stats)
+library(SimDesign)
 
 n = 10
 
@@ -47,4 +48,18 @@ M_estimates = function(M, model, estimator_names){
   names(M_estimators) = estimator_names
   return(M_estimators)
 }
+
+Bias = function(x){
+  bias(x, parameter = 0)
+}
+
+Bias_Var_MSE = function(data){
+  out = data.frame(Bias = 1:length(data), Var = 1:length(data), MSE = 1:length(data))
+  row.names(out) = colnames(data)
+  out[,1] = apply(data,2,Bias)
+  out[,2] = apply(data,2, var)
+  out[,3] = out$Var + (out$Bias)^2
+  return(out)
+}
+
 

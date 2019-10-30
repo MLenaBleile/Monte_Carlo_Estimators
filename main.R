@@ -13,3 +13,5 @@ estim_names = unlist(outer(estimate, n_char, paste))
 
  
 M_estimates(10,rnorm, estim_names)
+
+Bias_Var_MSE(d)
