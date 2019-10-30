@@ -5,7 +5,7 @@ So far, I've written functions to generate 6 of the 8 required estimators, and t
 
 Also, I used some for loops which get the job done for now but may not be super efficient.
 
-In summary, To Do:
+In summary, To Do (in order of importance):
 
  - Write functions in gen_estimators to generate remaining models
  - Write functions in gen_estimators to compute the reamining estimators, and add their names to the appropriate vector in main.R
