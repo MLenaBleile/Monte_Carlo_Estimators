@@ -2,9 +2,6 @@ library(psych)
 library(stats)
 library(SimDesign)
 
-n = 10
-
-
 ###Generation of estimators based on a sample
 
 trim.1 = function(x){return(mean(x, trim = 0.1))}
@@ -15,10 +12,12 @@ winsor.mean(x)
 
 #Generate data samples from models
 
-  n_cont.1 = function(n){return(rbinom(1,n, prob = 0.1))}
-  n_cont.2 = function(n){return(rbinom(1,n,prob = 0.2))}
-  R_O.1 = function(n){return(c(rnorm(n-n_cont.1), rnorm(n_cont.1, sd=4)))}
-  R_O.2 = function(n){return(c(rnorm(n - n_cont.2), rnorm(n_cont.2, sd=4)))}
+  n_cont.1 = function(n){return(as.numeric(rbinom(1,n, prob = 0.1)))}
+  n_cont.2 = function(n){return(as.numeric(rbinom(1,n,prob = 0.2)))}
+  
+  R_O.1 = function(n){return(c(rnorm(n-n_cont.1(n)), rnorm(n_cont.1(n), sd=4)))}
+  R_O.2 = function(n){return(c(rnorm(n - n_cont.2(n)), rnorm(n_cont.2(n), sd=4)))}
+  
   F_O_1 = function(n){return(c(rnorm(n-1), rnorm(1, sd=4)))}
   F_O_2 = function(n){return(c(rnorm(n-2), rnorm(2,sd=4)))}
   
@@ -33,7 +32,7 @@ get_n_ests = function(model){
   N_estimators = c()
   ns = c(10,20,30,50)
   for(n in ns){
-    N_estimators = c(N_estimators, get_estimators(n, model))
+    N_estimators = c(N_estimators, get_estimators(as.numeric(n), model))
     
   }
   return(N_estimators)
@@ -61,5 +60,18 @@ Bias_Var_MSE = function(data){
   out[,3] = out$Var + (out$Bias)^2
   return(out)
 }
+
+get_rank_estimates = function(d){
+  ests_by_n = Bias_Var_MSE(d)
+  ests_by_n$N = c(rep(10, length(estimate)), rep(20, length(estimate)), rep(30, length(estimate)), rep(50, length(estimate)))
+  
+  for(i in n_char){
+    ests_sub = ests_by_n[ests_by_n$N==i,]
+    ests_by_n[ests_by_n$N==i,] = ests_sub[order(ests_sub$MSE),]
+  }
+  print(ests_by_n)
+  return(ests_by_n)
+}
+
 
 
