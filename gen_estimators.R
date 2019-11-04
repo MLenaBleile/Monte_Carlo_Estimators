@@ -21,6 +21,12 @@ winsor.mean(x)
   F_O_1 = function(n){return(c(rnorm(n-1), rnorm(1, sd=4)))}
   F_O_2 = function(n){return(c(rnorm(n-2), rnorm(2,sd=4)))}
   
+#Generating Logistic variate using the inversion method
+  Logistic_e = function(n){return((-log((1-runif(n))/runif(n)))/(pi/sqrt(3)))}
+  laplace_es = function(n){return((rexp(n) - rexp(n))/sqrt(2))}
+
+
+
   
 get_estimators = function(n,model){
   data = model(n)
