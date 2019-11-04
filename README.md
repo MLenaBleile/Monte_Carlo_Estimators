@@ -7,7 +7,7 @@ Also, I used some for loops which get the job done for now but may not be super 
 
 In summary, To Do (in order of importance):
 
- - Write functions in gen_estimators to generate remaining models
+ - ~~Write functions in gen_estimators to generate remaining models ~~ 
  - Write functions in gen_estimators to compute the reamining estimators, and add their names to the appropriate vector in main.R
  - Automate rotation through models
  - Increase efficiency by eliminating loops
