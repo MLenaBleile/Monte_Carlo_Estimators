@@ -13,3 +13,5 @@ In summary, To Do (in order of importance):
  - Increase efficiency by eliminating loops
  
  Looking forward to your input. Thank you!!
+
+I have written funtions to generate the remaining two models (logistics distribution and Laplace distribution).
