@@ -13,3 +13,6 @@ In summary, To Do (in order of importance):
  - Increase efficiency by eliminating loops
  
  Looking forward to your input. Thank you!!
+ 
+ 
+ *I have created a new code file. In the new file I created user - defined functions for R- trimmed mean, R- winsorized mean and R-linearly weighted mean.*
