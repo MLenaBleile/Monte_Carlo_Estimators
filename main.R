@@ -2,7 +2,7 @@ setwd("C:/Users/MaryLena/Desktop/FALL2019/STAT 6324/MonteCarlo")
 source("gen_estimators.R")
 
 
-estimate = c("Mean", "Median", "Trim1", "Trim2", "Wind1", "Wind2")
+estimate = c("Mean", "Median", "Trim1", "Trim2", "Wind1", "Wind2", "Lin1", "Lin2")
 n_char = c(10,20,30,50)
 estim_names = unlist(outer(estimate, n_char, paste))
 
