@@ -7,7 +7,7 @@ n_char = c(10,20,30,50)
 estim_names = unlist(outer(estimate, n_char, paste))
 
 
-M = 10000
+M = 100000
 d_norm = M_estimates(M,rnorm, estim_names)
 d_RO = M_estimates(M, R_O.1, estim_names)
 d_RO2 = M_estimates(M, R_O.2, estim_names)
