@@ -4,10 +4,12 @@ library(SimDesign)
 
 ###Generation of estimators based on a sample
 
-trim.1 = function(x){return(mean(x, trim = 0.1))}
-trim.2 = function(x){return(mean(x, trim = 0.2))}
-w.1 = function(x){return(winsor.mean(x, trim = 0.1))}
-winsor.mean(x)
+trim.1 = function(x){return(rtrim(x, 0.1))}
+trim.2 = function(x){return(rtrim(x, 0.2))}
+w.1 = function(x){return(rwinsor(x, 0.1))}
+w.2 = function(x){return(rwinsor(x,0.2))}
+lin.1 = function(X){return(rlin(x, 0.1))}
+lin.2 = function(x){return(rlin(x,0.2))}
 
 
 #Generate data samples from models
