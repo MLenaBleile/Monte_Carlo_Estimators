@@ -28,6 +28,17 @@ rlin <- function(x, r){
   return(est)
 }
 
+#Harmonic mean
+
+hm = function(x){
+  xx = x[x!=0]
+  n=length(xx)
+  suminv = 1/sum(1/xx)
+  est = n*suminv
+  return(est)
+}
+
+
 #test cases
 xx<- c(12,14,23,16,24,30,1,2,4,5)
 rwinsor(xx,0.0) == mean(xx)
