@@ -130,16 +130,16 @@ get_estimates = function(d){
   return(ests_by_n)
 }
 
-best_estimates = function(ests_by_n){
-  ests_sub10 = ests_by_n[1:8,]
-  best = ests_sub10[ests_sub10$MSE==min(ests_sub10$MSE),]
-  ests_sub20 = ests_by_n[9:16,]
-  best = rbind(best,ests_sub20[ests_sub20$MSE==min(ests_sub20$MSE),])
-  ests_sub30 = ests_by_n[17:24,]
-  #print(ests_sub30)
-  best = rbind(best,ests_sub30[ests_sub30$MSE==min(ests_sub30$MSE),])
-  ests_sub50 = ests_by_n[25:32,]
-  #print(ests_sub50)
-  best = rbind(best,ests_sub50[ests_sub50$MSE==min(ests_sub50$MSE),])
-  return(best)
+sig2 = function(x){return(signif(x,digits=5))}
+
+get_rank_estimates = function(d){
+  ests_by_n = Bias_Var_MSE(d)
+  ests_by_n$N = c(rep(10, length(estimate)), rep(20, length(estimate)), rep(30, length(estimate)), rep(50, length(estimate)))
+  Estimator = rep(estimate,4)
+  ests_by_n = cbind(Estimator, ests_by_n)
+  ests_by_n[,2:ncol(ests_by_n)] = apply(ests_by_n[,2:ncol(ests_by_n)],2,as.numeric)
+  e_order = ests_by_n[order(ests_by_n$N, ests_by_n$MSE),]
+  e_order[,2:ncol(e_order)] = apply(e_order[,-1], 2, sig2)
+  rownames(e_order) = NULL
+  return(e_order)
 }
