@@ -1,6 +1,7 @@
-estimate = c("Mean", "Median", "Trim1", "Trim2", "Wind1", "Wind2", "Lin1", "Lin2")
+estimate = c("Arithmetic Mean", "Median", "Trimmed Mean (r=0.1)", "Trimmed Mean (r=0.2)", "Winsorized Mean (r=0.1)", "Winsorized Mean (r=0.2)", "Linearly Weighted Mean (r=0.1)", "Linearly Weighted Mean (r=0.2)",  "Harmonic Mean")
 n_char = c(10,20,30,50)
 estim_names = unlist(outer(estimate, n_char, paste))
+
 
 
 M = 100000
