@@ -14,11 +14,10 @@ d_Lap = M_estimates(M, laplace_es, estim_names)
 d_Log = M_estimates(M, Logistic_e, estim_names)
 
 
-Normal = best_estimates(get_estimates(d_norm))
-Random_Outlier_1 = best_estimates(get_estimates(d_RO))
-Random_Outlier_2 = best_estimates(get_estimates(d_RO2))
-Fixed_Outlier_1 = best_estimates(get_estimates(d_FO1))
-Fixed_Outlier_2 = best_estimates(get_estimates(d_FO2))
-Laplace = best_estimates(get_estimates(d_Lap))
-Logarithmic = best_estimates(get_estimates(d_Log))
-
+get_rank_estimates(d_norm)
+get_rank_estimates(d_RO)
+get_rank_estimates(d_RO2)
+get_rank_estimates(d_FO1)
+get_rank_estimates(d_FO2)
+get_rank_estimates(d_Lap)
+get_rank_estimates(d_Log)
