@@ -107,12 +107,21 @@ M_estimates = function(M, model, estimator_names){
 ###Write funcs to generate Bias and MSE###
 ###Need to write user defined fnc for Variance##
 ###Bias is just the mean right???####
+
+#answer
+#Yes bias is just the mean of the estimates from the 100,000 runs
+
+
 MSE = function(x){
-  return(mean(x)^2+sd(x)^2)
+  return(mean(x)^2+Varr(x))
 }
-Var = function(x){
-  return(sd(x)^2)
+Varr = function(x){
+  return(sum((x - mean(x))^2)/(length(x) - 1))
+  
 }
+#Var = function(x){
+#  return(sd(x)^2)
+#}
 
 Bias_Var_MSE = function(data){
   out = data.frame(Bias = 1:length(data), Var = 1:length(data), MSE = 1:length(data))
