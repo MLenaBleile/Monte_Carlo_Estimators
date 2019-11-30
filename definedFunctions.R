@@ -68,9 +68,9 @@ laplace_es = function(n){return((rexp(n) - rexp(n))/sqrt(2))}
 
 
 #function to calculate performances (Bias, Variance and MSE)
-biass = mean(x)
+biass = function(x){mean(x)}
 MSE = function(x){
-  return(biass^2+Varr(x))
+  return(biass(x)^2+Varr(x))
 }
 Varr = function(x){
   return(sum((x - mean(x))^2)/(length(x) - 1))
