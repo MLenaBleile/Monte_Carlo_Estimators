@@ -1,0 +1,76 @@
+---
+title: "Appendix 1"
+subtitle: "Tabular Results"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(gridExtra)
+options(kable.comment=FALSE,
+        kable.include.rownames=FALSE)
+```
+
+
+Estimators per model, ranked by MSE
+
+#Normal Model
+
+
+```{r dnorm, echo=FALSE}
+d1 = norm_pretty
+#d = d1[order(d1[,3]),]
+d1 %>% kable() %>% column_spec (1:ncol(d1),border_left = T, border_right = T) %>%
+kable_styling()
+```
+
+#Fixed Outlier Model (r=0.1)
+
+
+```{r fo1, echo=FALSE}
+ee = FO1_pretty
+ee %>% kable() %>% column_spec (1:ncol(ee),border_left = T, border_right = T) %>%
+kable_styling()
+```
+
+#Fixed Outlier Model (r=0.2)
+
+```{r fo2, echo=FALSE}
+ff = FO2_pretty
+ff %>% kable() %>% column_spec (1:ncol(ff),border_left = T, border_right = T) %>%
+kable_styling()
+
+```
+
+#Random Outlier Model (r=0.1)
+
+```{r ro1, echo=FALSE}
+gg = RO1_pretty
+gg %>% kable() %>% column_spec (1:ncol(gg),border_left = T, border_right = T) %>%
+kable_styling()
+```
+
+#Random Outlier Model (r=0.2)
+
+```{r ro2, echo=FALSE}
+hh = RO2_pretty
+hh %>% kable() %>% column_spec (1:ncol(hh),border_left = T, border_right = T) %>%
+kable_styling()
+```
+
+#Laplace Model
+
+```{r lap, echo=FALSE}
+ii = lap_pretty
+ii %>% kable() %>% column_spec (1:ncol(ii),border_left = T, border_right = T) %>%
+kable_styling()
+```
+
+#Logistic Model
+
+```{r log, echo=FALSE}
+jj = log_pretty
+jj %>% kable() %>% column_spec (1:ncol(jj),border_left = T, border_right = T) %>%
+kable_styling()
+```
+
